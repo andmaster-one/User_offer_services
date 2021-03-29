@@ -1,0 +1,9 @@
+sanic
+gino[sanic]
+alembic
+aiohttp
+cerberus
+psycopg2
+Werkzeug
+sanic-openapi
+pyjwt

@@ -1,0 +1,7 @@
+.vscode
+*.pyc
+.git
+virtual
+.directory
+__pycache__
+virtualsource

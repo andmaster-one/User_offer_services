@@ -1,0 +1,7 @@
+sanic
+gino[sanic]
+alembic
+aiohttp
+cerberus
+psycopg2
+sanic-openapi

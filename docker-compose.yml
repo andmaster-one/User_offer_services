@@ -1,0 +1,46 @@
+version: "3.9"
+
+services:
+  user_service:
+    build: ./user_service
+    ports:
+        - "9000:9000"
+    command: /code/init.sh 
+    env_file:
+      - ./.env_users.dev 
+    depends_on:
+      - db_user_service
+
+  offer_service:
+    build: ./offer_service
+    ports:
+        - "9001:9001"
+    command: /code/init.sh 
+    env_file:
+      - ./.env_offers.dev
+    depends_on:
+      - db_offers_service
+  
+  db_user_service:
+    image: postgres
+    volumes:
+      - postgres_user_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+
+  db_offers_service:
+    image: postgres
+    volumes:
+      - postgres_offer_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+
+volumes:
+  postgres_user_data:
+  postgres_offer_data:
+  
+
